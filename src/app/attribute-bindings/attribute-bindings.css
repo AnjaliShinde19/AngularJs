@@ -1,0 +1,10 @@
+.green-bg {
+  background-color: green;
+}
+.disabled-text {
+  color: red;
+  text-decoration: line-through;
+}
+.large-font {
+  font-size: 20px;
+}

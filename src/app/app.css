@@ -1,0 +1,10 @@
+ .active-class {
+    font-weight: bold;
+    color: yellow;
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    background-color: lightblue;
+  }

@@ -1,0 +1,38 @@
+<div class="border rounded mt-3 mb-3 p-2">
+    <h3>Route parame - User ID: 
+        {{ userId }}
+        <!-- {{ (userId$ | async) }} -->
+    </h3>
+    <h3>
+        Query string parameter - qsMsg: {{qsMsg}}
+    </h3>
+    
+    <!-- Using an object from the component class -->
+    <div [ngClass]="classesToApply">
+        This text has dynamic classes.
+    </div>
+    <br>
+
+    <!-- Using an inline object literal with conditions -->
+    <div [ngClass]="{'green-bg': isGreen, 'disabled-text': isDisabled}">
+        This text also has dynamic classes inline.
+    </div>
+    <br>
+
+    <!-- Using a string or array (less common for conditional use) -->
+    <div [ngClass]="['green-bg', 'large-font']">
+        This uses an array of classes.
+    </div>
+    <!-- ============================================================================================= -->
+    <br>
+
+    <!-- Using an inline object literal with conditions and units -->
+    <div [ngStyle]="{'font-size.px': currentFontSize, 'color': isHighlighted ? 'red' : 'black'}">
+        This text has dynamic inline styles.
+    </div>
+
+    <!-- Using an object from the component class -->
+    <div [ngStyle]="{'background-color': 'blue', 'border': '1px solid black'}">
+        Another example with a component property.
+    </div>
+</div>

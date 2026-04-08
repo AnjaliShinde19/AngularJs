@@ -1,0 +1,22 @@
+<div class="border rounded mt-3 mb-3 p-2">
+    <p>Check the console for log messages.</p>
+    <hr>
+
+    <div class="border rounded mt-3 mb-3 p-2">
+        <h3>Couneter Service</h3>
+        <p>Counter: {{ counterSrc.value }}</p>
+        <button class="btn btn-primary" (click)="counterSrc.inc()">+</button>&nbsp;
+        <button class="btn btn-danger" (click)="counterSrc.dec()">-</button>&nbsp;
+        <button class="btn btn-success" (click)="counterSrc.reset()">Reset</button>
+    </div>
+
+    <h3>Shared Service Across Components</h3>
+    <div class="border rounded mt-3 mb-3 p-2">
+        <counter-a></counter-a>
+    </div>
+    <div class="border rounded mt-3 mb-3 p-2">
+        <counter-b></counter-b>
+    </div>
+    <p><em>Both components use the same CounterService instance.</em></p>
+
+</div>

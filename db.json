@@ -1,0 +1,17 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "userId": 12,
+      "title": "aaaaaaaaaaa",
+      "body": "xxxxxxxxxx"
+    },
+    {
+      "id": 2,
+      "userId": 13,
+      "title": "Maya Angelou - 'You may not control all the events that happen to you, but you can decide not to be reduced by them.'",
+      "body": "Angelou reminds us that while life presents challenges beyond our control, we retain the power over our attitude and resilience. Strength comes not from avoiding adversity, but from refusing to let it diminish our spirit."
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

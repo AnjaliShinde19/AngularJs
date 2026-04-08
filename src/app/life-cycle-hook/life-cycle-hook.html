@@ -1,0 +1,18 @@
+<div>
+    <h2>Name :</h2>
+    <input type="text" [(ngModel)]="name" />
+    <input type="text" [(ngModel)]="prefix" />
+    <br>
+    <h3>UserID : {{ userid }}</h3>
+    
+    <div style="margin-top: 15px;border: 1px dashed;padding: 5px;">
+        <app-random-id-generator [user]="prefix" (generateUserId)="onGenerateUserId($event)">
+            <br>
+            <h2 #h2TitleTag>This is app-random-id-generator component</h2>
+            <button (click)="updateTitle()">Update Title (will trigger ngAfterContentChecked)</button>
+        </app-random-id-generator>
+    </div>
+
+    <button (click)="incrementCounter()">Update Child Counter</button>
+
+</div>

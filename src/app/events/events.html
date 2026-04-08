@@ -1,0 +1,36 @@
+<!-- ================================== Click, text enter, keyup Events ================================== -->
+<div class="border rounded mt-3 mb-3 p-2">
+    <h3>Events</h3>
+    <p>Count: {{ count }}</p>
+    <button (click)="increment()">Click me</button>
+
+    <div style="margin-top:12px">
+        <input placeholder="Type..." (input)="onInput($event)" (keyup)="lastKey = $any($event).key">
+        <p>Value: {{ value }}</p>
+        <p>Last key: {{ lastKey }}</p>
+    </div>
+</div>
+
+<!-- ================================== Event Filtering (keyup.enter) ================================== -->
+<div class="border rounded mt-3 mb-3 p-2">
+    <h3>Event Filtering (keyup.enter)</h3>
+    <div class="toolbar">
+        <input type="text" placeholder="Add item and press Enter" [value]="draft"
+            (input)="draft = $any($event.target).value" (keyup)="lastKeyEventFilter = $any($event).key" (keyup.enter)="add()">
+
+        <button (click)="add()">Add</button>
+        <button (click)="clear()" [disabled]="items.length === 0">Clear</button>
+        <span style="margin-left:8px;color:#666">Last key: {{ lastKeyEventFilter }}</span>
+    </div>
+    <ul>
+        <li *ngFor="let it of items; let i = index">{{ i + 1 }}. {{ it }}</li>
+    </ul>
+</div>
+
+<!-- ================================== Debounced Input ================================== -->
+<div class="border rounded mt-3 mb-3 p-2">
+    <h3>Debounced Input</h3>
+    <input type="text" placeholder="Type here" (input)="onDebouncedInput($event)">
+    <p>Immediate: {{ immediate }}</p>
+    <p>Debounced (3000ms): {{ debounced }}</p>
+</div>

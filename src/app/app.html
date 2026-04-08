@@ -1,0 +1,110 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" routerLink="" routerLinkActive="active-class">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Directives" routerLinkActive="active-class">Directives</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Events" routerLinkActive="active-class">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/DataBindings" routerLinkActive="active-class">DataBindings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/AttributeBindings/id=Hello World" routerLinkActive="active-class"
+            [queryParams]="{ qsMsg: 'I am QS value' }">
+            Attribute Bindings
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarFormDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Forms</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarFormDropdown">
+            <li><a class="dropdown-item" routerLink="/TemplateForm" routerLinkActive="active-class">Template
+                Form</a></li>
+            <li><a class="dropdown-item" routerLink="/ReactiveForm" routerLinkActive="active-class">Reactive
+                Form</a></li>
+            <li><a class="dropdown-item" routerLink="/DynamicForm" routerLinkActive="active-class">Dynamic
+                Form</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarRoutingDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Routing</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarRoutingDropdown">
+            <li><a class="dropdown-item" routerLink="/admin" routerLinkActive="active-class">Route based LazyLoad
+                Admin</a></li>
+            <li><a class="dropdown-item" routerLink="/DynamicLazyLoading" routerLinkActive="active-class">Dynamic Lazy
+                Load</a></li>
+            <li><a class="dropdown-item" routerLink="/NestedChildDemo" routerLinkActive="active-class">Nested
+                child routes</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Logger" routerLinkActive="active-class">Service & DI</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">HttpClient</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/HttpClientDemo" routerLinkActive="active-class">Json API
+                CRUD</a></li>
+            <li><a class="dropdown-item" routerLink="/DbJsonCrud" routerLinkActive="active-class">db.Json
+                CRUD</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/RxJsObservable" routerLinkActive="active-class">RxJs & Observable</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Advanced Angular</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/ChangeDetectionStretegies" routerLinkActive="active-class">Change
+                Detection Strategy</a>
+            </li>
+
+            <!-- <li class="nav-item">
+              <a class="nav-link" routerLink="/ViewEncapsulation" routerLinkActive="active-class">View Encapsulation</a>
+            </li> -->
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/MaterialsDemo" routerLinkActive="active-class">Materials</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+</div>
+<div class="container">
+
+  <!-- <app-view-encapsulation></app-view-encapsulation>
+  <app-view-encapsulation1></app-view-encapsulation1> -->
+
+  <!-- Routed components are rendered here -->
+  <router-outlet></router-outlet>
+</div>
+
+<style>
+  .active-class {
+    font-weight: bold;
+    color: yellow;
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    background-color: lightblue;
+  }
+</style>

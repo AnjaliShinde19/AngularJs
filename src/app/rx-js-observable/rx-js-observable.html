@@ -1,0 +1,96 @@
+<div class="border rounded mt-3 mb-3 p-2">
+    <div class="card">
+        <div class="card-header text-dark bg-warning">
+            <b>Different Ways of Creating Observable</b>
+        </div>
+        <div class="card-body">
+            <div class="innerDiv">
+                <b>1. of()</b>
+                <div>
+                    <ul>
+                        <li *ngFor="let numbers of items">
+                            {{numbers}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="innerDiv">
+                <b>2. from()</b>
+                <div>
+                    <ul>
+                        <li *ngFor="let numbers of fromItems">
+                            {{numbers}}
+                        </li>
+                    </ul>
+                </div>
+
+                <b>Example with Promise:</b>
+                <div>
+                    {{promiseItems}}
+                </div>
+            </div>
+
+            <div class="innerDiv">
+                <b>3. interval()</b>
+                <div>The current interval value is: {{ counter$ | async }}</div>
+            </div>
+
+            <div class="innerDiv">
+                <b>4. timer()</b>
+                <div>The current timer value is: {{ timerCounter$ | async }}</div>
+            </div>
+
+            <div class="innerDiv">
+                <b>5. fromEvent()</b>
+                <div>
+                    <button #myButton class="btn btn-success btn-sm">Click me</button>
+                    <p>{{btnClickedMsg}}</p>
+                </div>
+            </div>
+
+            <div class="innerDiv">
+                <b>6. throwError()</b>
+                <div>{{errorMsg}}</div>
+            </div>
+
+            <div class="innerDiv">
+                <b>Creating an Observable with the Observable Constructor</b>
+                <ul>
+                    <ng-container *ngIf="posts$ | async as posts;">
+                        <li *ngFor="let post of posts">{{ post }}</li>
+                    </ng-container>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header text-dark bg-warning">
+            <b>RXJS Operators</b>
+        </div>
+        <div class="card-body">
+            <div class="innerDiv">
+                <b>Map and filter</b>
+                <div>
+                    <ul>
+                        <li *ngFor="let numbe of mappedData">
+                            {{numbe}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="innerDiv">
+                <b>5. fromEvent()</b>
+                <div>
+                    <button #btnSwitch class="btn btn-success btn-sm">Switch map</button>
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

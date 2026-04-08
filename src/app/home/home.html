@@ -1,0 +1,103 @@
+<!-- =========================== Angular Component Essentials Input(), Output() ========================================= -->
+<div class="border rounded mt-3 mb-3 p-2">
+    <h3>Angular Component Essentials Input(), Output()</h3>
+    <div style="background-color: bisque;">
+        <h5>I am Parent Component</h5>
+
+        <!-- Listen for the 'newItemEvent' from the child and run the 'addItem' method -->
+        <app-component-input-output [messageFromParent]="parentMsg"
+            (newItemEvent)="addItem($event)"></app-component-input-output>
+
+        <ul>
+            <li *ngFor="let item of items">{{ item }}</li>
+        </ul>
+    </div>
+</div>
+
+<!--============================  Code for LifeCycle hook example ======================================================= -->
+<div class="border rounded mt-3 mb-3 p-2">
+    <h2>Angular Lifecycle Events Example</h2>
+    <div>
+        <input type='button' (click)='toggleUserDetails()' value='{{btnText}} User Details'>
+    </div>
+
+    @if (showUserDetails)
+    {
+        <app-life-cycle-hook></app-life-cycle-hook>
+    }
+</div>
+
+<!-- ============================== @ViewChildren - Accessing Multiple DOM Elements ================================= -->
+<div class="border rounded mt-3 mb-3 p-2">
+    <h2>@ViewChildren - Accessing Multiple DOM Elements</h2>
+
+    <!-- Use a template reference variable '#box' for multiple elements -->
+    <div #box class="box">Box 1</div>
+    <div #box class="box">Box 2</div>
+    <div #box class="box">Box 3</div>
+    <br>
+    <button (click)="changeColors()">Change Colors</button>
+</div>
+<!-- ============================================================================================================ -->
+
+<!-- ========= @ContentChild - accesses content projected from a parent component into a child component via <ng-content> =====4 -->
+<!-- Render parent-provided content inside a child component. Mark insertion points with <ng-content> -->
+<div class="border rounded mt-3 mb-3 p-2">
+    <h2>@ContentChild - used to accesses content projected from a parent component into a child component via ng-content
+    </h2>
+    <app-content-child>
+        <p #msg>This is projected content</p>
+    </app-content-child>
+</div>
+
+<!-- ========================================== Pipes ======================================================= -->
+<div class="border rounded mt-3 mb-3 p-2">
+
+    <div>
+        <h4>Basic(Inbuilt Pipes)</h4>
+        <p>{{ title | uppercase }}</p>
+        <p>{{ price | currency:'USD' }}</p>
+        <p>{{ today | date:'mediumDate' }}</p>
+        <p>{{ percent | percent:'1.0-2' }}</p>
+    </div>
+
+    <div>
+        <h4>Custom Pipe</h4>
+        <p>{{ 'Angular with custom pipe' | star }}</p>
+    </div>
+
+    <div>
+        <h4>Async Pipe</h4>
+        <!-- Using *ngIf with 'as' keyword for efficiency -->
+        <div *ngIf="data$ | async as items">
+            <ul>
+                <li *ngFor="let item of items">{{ item }}</li>
+            </ul>
+        </div>
+        <!-- Simple usage for single value display -->
+        <p>First item: {{ (data$ | async)?.[0] }}</p>
+
+        <p>Time: {{ time$ | async | date:'mediumTime' }}</p>
+
+        <div>
+            <h4>Users (delayed)</h4>
+            <ng-container *ngIf="users$ | async as users; else loading">
+                <ul>
+                    <li *ngFor="let u of users">{{ u.name }}</li>
+                </ul>
+            </ng-container>
+            <ng-template #loading>Loading...</ng-template>
+        </div>
+
+    </div>
+</div>
+<!-- ========================================================================================================= -->
+
+
+
+
+
+
+
+
+

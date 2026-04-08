@@ -1,0 +1,76 @@
+<div class="border rounded mt-3 mb-3 p-2">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" name="txtUsername" [(ngModel)]="user.username" required #username="ngModel" class="form-control">
+            <!-- Validation message -->
+            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert">
+                Username is required.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" name="txtEmail" [(ngModel)]="user.email" required #email="ngModel" class="form-control">
+            <!-- Validation message -->
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+                <div *ngIf="email.errors?.['required']" class="form-text">Email is required.</div>
+                <div *ngIf="email.errors?.['email']" class="form-text">Email must be valid.</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Address" class="form-label">Address:</label>
+            <textarea name="txtAddress" [(ngModel)]="user.Address" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="chkAgree" name="chkAgree" [(ngModel)]="user.agree"
+                    #agree="ngModel" required>
+                <label class="form-check-label" for="chkAgree">
+                    Agree
+                </label>
+                <div *ngIf="agree.invalid && (agree.dirty || agree.touched)" class="alert">
+                    Checkbox is required.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="color" id="rdoRed" [value]="'red'" [(ngModel)]="user.color" #color="ngModel" required>
+                <label class="form-check-label" for="rdoRed">Red</label>
+            </div>
+             <div class="form-check">
+                <input class="form-check-input" type="radio" name="color" id="rdoBlue" [value]="'blue'" [(ngModel)]="user.color" #color="ngModel" required>
+                <label class="form-check-label" for="rdoBlue">Blue</label>
+            </div>
+            <div *ngIf="color.invalid && (color.dirty || color.touched)" class="alert">
+                Color is required.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="pet" class="form-label">Pet:</label>
+            <select name="pet" [(ngModel)]="user.pet" #pet="ngModel" class="form-control" multiple required>
+                <option [ngValue]="{ id: 1, name: 'Cat' }">Cat</option>
+                <option [ngValue]="{ id: 2, name: 'Dog' }">Dog</option>
+                <option [ngValue]="{ id: 3, name: 'Bird' }">Bird</option>
+                <option [ngValue]="{ id: 4, name: 'Fish' }">Fish</option>
+            </select>
+            <div *ngIf="pet.invalid && (pet.dirty || pet.touched)" class="alert">Pet selection is required.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="files" class="form-label">File:</label>
+            <input type="file" name="txtFileUpload" [(ngModel)]="user.fileUpload" class="form-control">
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Submit</button>
+    </form>
+
+    <!-- Optional: Display form state for debugging -->
+    <p>Form Status: {{ userForm.valid ? 'Valid' : 'Invalid' }}</p>
+</div>
